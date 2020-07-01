@@ -37,6 +37,7 @@ const fixer = require("./fixer-io.custom.js");
 const ct = require('countries-and-timezones');
 const moment = require('moment');
 const spacetime = require('spacetime')
+const tzs = require('./tzs.json')
 let re, match;
 let convertTableToImperial = [
   //pounds
@@ -166,19 +167,17 @@ async function convert(str, usedCurrency, m, mentionnedMsg){
   }
   console.log(str);
   re = /(([0-9]+\/){3} )?([0-9]{2}((:)([0-9]{2}))?)( )?(AM|PM)?(( )([A-Z]{2,4}))?/g;
-  /*let STtoCT={
-    'CEST':'Europe/Belgium',
-    'PDT':'America/Los_Angeles',
-  }*/
   while ((match = re.exec(str)) != null) {
-    //let num = +match[1].replace(",", ".");
-    /*Object.entries(STtoRT).forEach(([i,v])=>{
-      console.log(i,v)
-      match[0]=match[0].replace(i,v)
-      console.log(match[0])
-    })*/
+    Object.entries(tzs).forEach(([i,v])=>match[0]=match[0].replace(new RegExp(`/${i}/g`,v)))
     if(!tz&&!match[9])
-      m.channel.send(`Cannot convert time in convertraw unless formatted this way: \`\``)
+      m.channel.send(`Cannot convert time in convertraw unless formatted this way: \`[DD/MM/YY[YY] ]HH:MM[ ][A]ZZ[Z[Z[Z]]]\` where:
+-D is day,
+-M is month,
+-Y is year,
+-H is hour,
+-M is minute,
+-A is AM or PM and
+-Z is the timezone`)
     let space1 = match[7] ? " " : "";
     let formatTemplate=`${match[1]?'DD-MM-YYYY ':''}HH${match[4]?':MM':''}${space1}${match[8]?'a':''}`
     let currMoment=spacetime(moment(match[0],formatTemplate+(match[9]?' zz':'')).format(), !match[11]?`UTC${Math.abs(tz)==tz?'+':'-'}${tz}`:match[11])
