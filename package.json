@@ -19,6 +19,7 @@
     "fixer.io": "^1.0.5",
     "informa-db.js": "^1.0.7-beta.0",
     "moment": "^2.27.0",
-    "moment-timezone": "^0.5.31"
+    "moment-timezone": "^0.5.31",
+    "spacetime": "^6.6.1"
   }
 }
