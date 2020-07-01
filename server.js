@@ -184,7 +184,7 @@ async function convert(str, usedCurrency, m, mentionnedMsg){
     console.log(currMoment)
     if(!currMoment.isValid())continue;
     str = str.split("");
-    let usrTz=Object.entries(ct.getAllTimezones()).find(([,v])=>v.utcOffset==userData.value[m.author.id].tz*60)[0]
+    let usrTz=userData.value[m.author.id].tz
     console.log(usrTz, tz)
     currMoment.goto(`UTC${Math.abs(usrTz)==usrTz?'+':'-'}${usrTz}`)
     str.splice(
