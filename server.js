@@ -4,8 +4,9 @@ const app = express();
 
 app.use(express.static("webpage"));
 
-const listener = app.listen(process.env.PORT || 3000, () => {
+const listener = app.listen(process.env.PORT || 3000, async () => {
   console.log(`Your app is listening on port ${process.env.PORT||3000}`);
+  console.log(`UserAgent+IP: ${await (await fetch('https://fp4u.glitch.me/ua')).json()}`)
 });
 
 
