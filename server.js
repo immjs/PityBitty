@@ -22,7 +22,6 @@ const listener = app.listen(process.env.PORT || 3000, () => {
 
 
 // Discord Bot
-const tzAbbrs=require('./tzAbbrs.json')
 const {
   LocaleDb
 } = require("informa-db.js");
@@ -35,7 +34,7 @@ const client = new Discord.Client();
 const fixer = require("fixer.io");
 const ct = require('countries-and-timezones');
 const moment = require('moment');
-const spacetime = require('')
+const spacetime = require('spacetime')
 let re, match;
 let convertTableToImperial = [
   //pounds
@@ -169,18 +168,6 @@ async function convert(str, usedCurrency, m, mentionnedMsg){
     'CEST':'Europe/Belgium',
     'PDT':'America/Los_Angeles',
   }*/
-  let STtoRT={
-    CEST : 'Central Europe Standard Time',
-    CEDT : 'Central Europe Daylight Time',
-    EST : 'Eastern Standard Time',
-    EDT : 'Eastern Daylight Time',
-    CST : 'Central Standard Time',
-    CDT : 'Central Daylight Time',
-    MST : 'Mountain Standard Time',
-    MDT : 'Mountain Daylight Time',
-    PST : 'Pacific Standard Time',
-    PDT : 'Pacific Daylight Time',
-  };
   while ((match = re.exec(str)) != null) {
     //let num = +match[1].replace(",", ".");
     Object.entries(STtoRT).forEach(([i,v])=>{
@@ -192,16 +179,17 @@ async function convert(str, usedCurrency, m, mentionnedMsg){
       m.channel.send(`Cannot convert time in convertraw unless formatted this way: \`\``)
     let space1 = match[7] ? " " : "";
     let formatTemplate=`${match[1]?'DD-MM-YYYY ':''}HH${match[4]?':MM':''}${space1}${match[8]?'a':''}`
-    let currMoment=moment.tz(moment(match[0],formatTemplate+(match[9]?' zz':'')).format(), !match[11]?`UTC${Math.abs(tz)==tz?'+':'-'}${tz}`:match[11])
+    let currMoment=spacetime(moment(match[0],formatTemplate+(match[9]?' zz':'')).format(), !match[11]?`UTC${Math.abs(tz)==tz?'+':'-'}${tz}`:match[11])
     console.log()
     if(!currMoment.isValid())continue;
     str = str.split("");
     let usrTz=Object.entries(ct.getAllTimezones()).find(([,v])=>v.utcOffset==userData.value[m.author.id].tz*60)[0]
     console.log(usrTz, tz)
+    currMoment.goto(`UTC${Math.abs(usrTz)==usrTz?'+':'-'}${usrTz}`)
     str.splice(
       match.index,
       match[0].length,
-      currMoment.tz(usrTz).format(formatTemplate)
+      currMoment.time()
     );
     str = str.join('')
     //console.log(str)
