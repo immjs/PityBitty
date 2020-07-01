@@ -231,7 +231,7 @@ const commands = {
   setctry: {
     desc: "Set your country",
     func: (m, args) => {
-      if (args.length > 1 || args[0].length > 3 || args[0] < 1)
+      if (args.length > 1 || (args[0] && args[0].length > 3) || (args[0] && args[0].length < 1))
         return m.channel
           .send(`This is not a valid country. Please format: CC[C].
 For a list of country codes see https://www.iban.com/country-codes`);
