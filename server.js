@@ -172,11 +172,11 @@ async function convert(str, usedCurrency, m, mentionnedMsg){
   }*/
   while ((match = re.exec(str)) != null) {
     //let num = +match[1].replace(",", ".");
-    Object.entries(STtoRT).forEach(([i,v])=>{
+    /*Object.entries(STtoRT).forEach(([i,v])=>{
       console.log(i,v)
       match[0]=match[0].replace(i,v)
       console.log(match[0])
-    })
+    })*/
     if(!tz&&!match[9])
       m.channel.send(`Cannot convert time in convertraw unless formatted this way: \`\``)
     let space1 = match[7] ? " " : "";
