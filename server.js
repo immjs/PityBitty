@@ -167,7 +167,7 @@ async function convert(str, usedCurrency, m, mentionnedMsg){
   }
   console.log(str);
   Object.entries(tzs).forEach(([i,v])=>str=str.replace(new RegExp(`/${i}/g`),v))
-  re = /(([0-9]+\/){3} )?([0-9]{2}((:)([0-9]{2}))?)( )?(AM|PM)?(( )(UTC(\+|-)({1,4})))?/g;
+  re = /(([0-9]+\/){3} )?([0-9]{2}((:)([0-9]{2}))?)( )?(AM|PM)?(( )(UTC(\+|-)([0-9]{1,4})))?/g;
   while ((match = re.exec(str)) != null) {
     if(!tz&&!match[9])
       m.channel.send(`Cannot convert time in convertraw unless formatted this way: \`[DD/MM/YY[YY] ]HH:MM[ ][A]ZZ[Z[Z[Z]]]\` where:
