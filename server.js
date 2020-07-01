@@ -165,7 +165,7 @@ async function convert(str, usedCurrency, m, mentionnedMsg){
     str = str.join('')
   }
   console.log(str);
-  re = /(([0-9]+\/){3} )?([0-9]{2}((:)([0-9]{2}))?)( )?(AM|PM)?(( )([A-Z]{3,4}))?/g;
+  re = /(([0-9]+\/){3} )?([0-9]{2}((:)([0-9]{2}))?)( )?(AM|PM)?(( )([A-Z]{2,4}))?/g;
   /*let STtoCT={
     'CEST':'Europe/Belgium',
     'PDT':'America/Los_Angeles',
