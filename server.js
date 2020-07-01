@@ -182,7 +182,7 @@ async function convert(str, usedCurrency, m, mentionnedMsg){
     let space1 = match[7] ? " " : "";
     let formatTemplate=`${match[1]?'DD-MM-YYYY ':''}HH${match[4]?':MM':''}${space1}${match[8]?'a':''}`
     let currMoment=spacetime(moment(match[0],formatTemplate+(match[9]?' zz':'')).format(), !match[11]?`UTC${Math.abs(tz)==tz?'+':'-'}${tz}`:match[11])
-    console.log()
+    console.log(currMoment)
     if(!currMoment.isValid())continue;
     str = str.split("");
     let usrTz=Object.entries(ct.getAllTimezones()).find(([,v])=>v.utcOffset==userData.value[m.author.id].tz*60)[0]
