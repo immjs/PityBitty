@@ -292,7 +292,7 @@ For a list of country codes see https://www.iban.com/country-codes`);
     perms: []
   },
   time: {
-    desc: "Lists the appendices that might help you using the bot",
+    desc: "Gets the current time in another timezone",
     func: (m, args)=>{
       if (args.length==0) return m.reply('You did not specify any user or IANA timezone')
       if (args.length>1) return m.reply('You are giving me too much information')
@@ -307,14 +307,19 @@ For a list of country codes see https://www.iban.com/country-codes`);
         msg.reply(spacetime.now(`UTC${Math.abs(usrTz)==usrTz?'+':'-'}${Math.abs(usrTz)}`).format())
       } else {
         let now
-        try{
-          now=spacetime.now(args[0]).format()
+        tzs.forEach(([i,v])=>{if((str2=args[0].replace(new RegExp(`${i}`),v))!=args[0]&&!args[0].match(/(( )(UTC(\+|-)([0-9]{1,4})))/)){args[0]=str2}})
+        console.log(args[0])
+        try {
+          let today=new Date()
+          console.log(today)
+          now=spacetime([today.getUTCFullYear(), today.getUTCMonth(), today.getDate()] , 'UTC+0').time(today.toISOString()).goto(args[0]).format('nice')
         } catch(err) {
-          return m.reply(`The provided timezone is not valid`)
+          return m.reply('The provided timezone is not valid')
         }
-        msg.reply(now)
+        m.reply(now)
       }
-    }
+    },
+    perms: []
   },
   appendices: {
     desc: "Lists the appendices that might help you using the bot",
@@ -335,7 +340,8 @@ For a list of country codes see https://www.iban.com/country-codes`);
         let i = args[0];
         let v = commands[args[0]];
       }
-    }
+    },
+    perms: []
   },
   convertraw: {
     desc: "Automatically converts a message to the units of your country",

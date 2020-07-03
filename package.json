@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "build": "npm run start",
-    "start": "node server.js"
+    "start": "../portkiller.sh 3000&&node server.js"
   },
   "author": "",
   "license": "ISC",
