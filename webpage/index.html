@@ -3,13 +3,13 @@
 
 <head>
   <title>PityBitty</title>
-  <link rel="stylesheet" href="/general.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/dracula.min.css" />
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <link rel="stylesheet" href="./general.css" />
   <script src="https://kit.fontawesome.com/b1f68c9c2e.js" crossorigin="anonymous"></script>
+  <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/dracula.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
-  </script>
+  </script>-->
 </head>
 
 <body>
@@ -54,7 +54,7 @@
                 </span>
               </div>
               <div class="discord-message-body">
-                They only gave me 10$ for running 4 miles delivering 10 Pounds of
+                They only gave me 10$ for running 4 miles delivering 40 Pounds of
                 hardware!
               </div>
             </div>
@@ -114,13 +114,34 @@
         </div>
       </div>
     </div>-->
-
+    <discord-messages>
+      <discord-message author="Yeh dis iz murica">
+        They only gave me 10$ for running 4 miles delivering 40 Pounds of hardware!
+      </discord-message>
+      <discord-message author="🇹🇫 does not mean 🥖" avatar="blue">
+        Hmm... In metric? To EUR?
+        m!convert <mention type="channel">#general</mention> 424633431754801164
+      </discord-message>
+      <discord-message author="Twelve" avatar="../../" role-color="#15b153">
+        Hello everyone! How's it going?
+      </discord-message>
+      <discord-message author="User">
+        Thank you <mention :highlight="true">Sanctuary</mention>!
+      </discord-message>
+      <discord-message author="Yotsuba" avatar="https://i.imgur.com/amw0MGJ.png">
+        I'm doing well, <mention>Twelve</mention>. What about yourself?
+      </discord-message>
+      <discord-message author="Twelve" avatar="https://i.imgur.com/Mc0F0Hf.png" role-color="#15b153">
+        !8ball How am I doing today?
+      </discord-message>
+      <discord-message :bot="true" author="Rinon" avatar="https://i.imgur.com/axQ9wJl.png" role-color="violet">
+        Yes.
+      </discord-message>
+    </discord-messages>
     <h2>
       Automatically converts: <br>
       -Currency to currency<br>
       -Metric to imperial<br>
-      <br>
-      Soon:<br>
       -Timezones
     </h2>
   </main>
@@ -133,6 +154,7 @@
     <!--<p>
       <pre><code class="plaintext">...</code></pre>
     </p>-->
+
     <div class="window">
       <div class="titlebar">
         <div class="buttons">
@@ -157,10 +179,8 @@
                 src="https://cdn.glitch.com/1b3f7b6e-8228-488c-aa50-9ce39da64c9b%2FAsset1.png?v=1593272176336"
                 alt="Yeh dis iz murica"
               />-->
-              <img
-                src="https://cdn.glitch.com/1b3f7b6e-8228-488c-aa50-9ce39da64c9b%2FAsset5.png?v=1593368490674"
-                alt="SellYourTrades"
-              />
+              <img src="https://cdn.glitch.com/1b3f7b6e-8228-488c-aa50-9ce39da64c9b%2FAsset5.png?v=1593368490674"
+                alt="SellYourTrades" />
             </div>
             <div class="discord-message-content">
               <div>
@@ -182,14 +202,8 @@
           </div>
           <div class="discord-message">
             <div class="discord-author-avatar">
-              <!--<img
-                src="https://cdn.glitch.com/1b3f7b6e-8228-488c-aa50-9ce39da64c9b%2FAsset2.png?v=1593272179822"
-                alt="🇹🇫 does not mean 🥖"
-              />-->
-              <img
-                src="https://cdn.glitch.com/1b3f7b6e-8228-488c-aa50-9ce39da64c9b%2FAsset4.png?v=1593368494672"
-                alt="£cologist"
-              />
+              <img src="https://cdn.glitch.com/1b3f7b6e-8228-488c-aa50-9ce39da64c9b%2FAsset4.png?v=1593368494672"
+                alt="£cologist" />
             </div>
             <div class="discord-message-content">
               <div>
@@ -204,7 +218,7 @@
               </div>
               <div class="discord-message-body">
                 <!---->
-                m!convertbymsg 
+                m!convertbymsg
                 <span class="discord-mention">#general</span> 424633431754801164
                 <!---->
               </div>
@@ -212,10 +226,8 @@
           </div>
           <div class="discord-message">
             <div class="discord-author-avatar">
-              <img
-                src="https://cdn.glitch.com/1b3f7b6e-8228-488c-aa50-9ce39da64c9b%2FAsset3.png?v=1593272183962"
-                alt="PityBitty"
-              />
+              <img src="https://cdn.glitch.com/1b3f7b6e-8228-488c-aa50-9ce39da64c9b%2FAsset3.png?v=1593272183962"
+                alt="PityBitty" />
             </div>
             <div class="discord-message-content">
               <div>
@@ -230,8 +242,36 @@
               </div>
               <div class="discord-message-body">
                 <!---->
-                <span class="discord-mention">@🇹🇫 does not mean 🥖</span>, I'm selling this action for 62GBP! Anyone?
                 <!---->
+              </div>
+              <div class="discord-embed">
+                <div class="discord-left-border" style="background-color:#0099ff;"></div>
+                <div class="discord-embed-container">
+                  <div class="discord-embed-content">
+                    <div>
+                      <div class="discord-embed-title">
+                        Conversion results
+                      </div>
+                      <div class="discord-embed-description">
+                        I'm selling this action for 62GBP! Anyone?
+                        <div class="discord-embed-fields">
+                          <div class="discord-embed-field discord-inline-field">
+                            <div class="discord-field-title">To currency 💵</div>
+                            GBP
+                          </div>
+                          <div class="discord-embed-field discord-inline-field">
+                            <div class="discord-field-title">To timezone 🕗🌐</div>
+                            UTC+0
+                          </div>
+                          <div class="discord-embed-field discord-inline-field">
+                            <div class="discord-field-title">To imperial or metric 📏</div>
+                            Metric
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -241,10 +281,8 @@
                 src="https://cdn.glitch.com/1b3f7b6e-8228-488c-aa50-9ce39da64c9b%2FAsset2.png?v=1593272179822"
                 alt="🇹🇫 does not mean 🥖"
               />-->
-              <img
-                src="https://cdn.glitch.com/1b3f7b6e-8228-488c-aa50-9ce39da64c9b%2FAsset4.png?v=1593368494672"
-                alt="£cologist"
-              />
+              <img src="https://cdn.glitch.com/1b3f7b6e-8228-488c-aa50-9ce39da64c9b%2FAsset4.png?v=1593368494672"
+                alt="£cologist" />
             </div>
             <div class="discord-message-content">
               <div>
@@ -269,7 +307,23 @@
     </div>
 
     <h2>
-      Support some symbols and all 3-letters currency representation
+      Support some symbols, negative money notation and all 3-letters currency representation
+    </h2>
+  </main>
+
+  <main class="main3">
+    <i class="fas fa-ruler fa-2x"></i>
+    <h1>
+      A Currency Converting bot
+    </h1>
+    <!--<p>
+      <pre><code class="plaintext">...</code></pre>
+    </p>-->
+
+    <h2>
+      Supports full form and abbreviations of<br>
+      Pounds (lbs), Kilograms (kgs), Miles (mis), Kilometers (kms),<br>
+      Degrees Celcius (°C), Degrees Fahrenheit (°F), Feets ('), Meters (m)
     </h2>
   </main>
 </body>
