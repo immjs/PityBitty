@@ -67,7 +67,7 @@ let convertTableToImperial = [
     convert: a => a * 3.281,
     to: [
       ["'", "'"],
-      ["feet", "feets"]
+      ["foot", "feet"]
     ]
   },
   //miles
@@ -77,7 +77,7 @@ let convertTableToImperial = [
     convert: a => a / 1.609,
     to: [
       ["mi", "mis"],
-      ["miles", "miles"]
+      ["mile", "miles"]
     ]
   }
 ];
