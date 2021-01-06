@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "countries-and-timezones": "^2.2.0",
     "country-data-list": "^1.2.0",
     "country-timezone": "^1.0.8",
